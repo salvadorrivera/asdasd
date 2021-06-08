@@ -5,7 +5,7 @@ function NavBar(){
     return(
         <nav className="navBar">
             <h1>Hola Tutor!</h1>
-            <ul clasName="items">
+            <ul className="items">
                 <li>Hola</li>
                 <li>Buenas</li>
                 <li>Noches</li>
@@ -13,3 +13,5 @@ function NavBar(){
         </nav>
     );
 }
+
+export default NavBar;
