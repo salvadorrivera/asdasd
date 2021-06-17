@@ -1,5 +1,9 @@
-import React from 'react';
 import ItemCount from './ItemCount';
+import Item from './ItemList';
+
+
+
+
 
 export default function ItemListContainer(props){
 
@@ -12,6 +16,7 @@ export default function ItemListContainer(props){
         <>
             {props.title} muy {props.name}
             <ItemCount initial = {0} stock={5} onAdd={onAdd} />
+            <Item  />
         </>
     </div>
     )
