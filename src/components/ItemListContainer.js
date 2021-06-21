@@ -1,10 +1,6 @@
 import ItemCount from './ItemCount';
 import Item from './ItemList';
 
-
-
-
-
 export default function ItemListContainer(props){
 
     const onAdd = (contador) => {
@@ -21,6 +17,3 @@ export default function ItemListContainer(props){
     </div>
     )
 };
-
-
-

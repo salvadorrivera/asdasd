@@ -17,7 +17,7 @@ export default function Item(){
 
 
     useEffect(() => {
-        const promesa = new Promise((resolve, reject) => {
+        new Promise((resolve, reject) => {
         setTimeout(resolve(itemArray), 2000);
         }).then((NewItem) =>{
         setItem(NewItem)
@@ -28,7 +28,7 @@ export default function Item(){
 
     return(
         <div>
-        {item.map((component) => <MostrarItem id={component.id} title={component.title} price={component.price} pictureUrl={component.pictureUrl} />)}
+        {item.map((component) => <MostrarItem key={component.toString()} id={component.id} title={component.title} price={component.price} pictureUrl={component.pictureUrl} />)}
         </div>
     )
 }

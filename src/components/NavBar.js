@@ -8,9 +8,9 @@ function NavBar(){
             <CartWidget />
             <nav>    
               <ul className="items">
-                    <li><a href="">Hola</a></li>
-                    <li><a href="">Buenas</a></li>
-                    <li><a href="">Noches</a></li>
+                    <li><a href="/#">Hola</a></li>
+                    <li><a href="/#">Buenas</a></li>
+                    <li><a href="/#">Noches</a></li>
                 </ul>
             </nav>
             
