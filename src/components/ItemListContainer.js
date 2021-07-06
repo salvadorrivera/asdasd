@@ -10,9 +10,9 @@ export default function ItemListContainer(props){
     return(
     <div>
         <>
-            {props.title} muy {props.name}
-            <ItemCount initial = {0} stock={5} onAdd={onAdd} />
+            {props.title}{props.name}
             <Item  />
+            <ItemCount initial = {0} stock={5} onAdd={onAdd} />
         </>
     </div>
     )
