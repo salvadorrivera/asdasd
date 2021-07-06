@@ -11,9 +11,9 @@ function NavBar(){
               <ul className="items">
                     <li><Link to="/">Hola </Link></li>
 
-                    <li><Link path to="/category/:id"> Buenas </Link></li>
+                    <li><Link  to="/category/:id"> Buenas </Link></li>
 
-                    <li><Link path to="/item/:id"> Noches </Link></li>
+                    <li><Link  to="/item/:id"> Noches </Link></li>
                 </ul>
             </nav>
             
