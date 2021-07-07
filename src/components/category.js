@@ -1,7 +1,7 @@
-import {useState, useEffect} from "react";
-import MostrarItem from "./Item";
-
-const itemArray = [
+import React, {useEffect, useState} from 'react';
+import { useParams } from 'react-router';
+import MostrarItem from './Item';
+const array= [
     {
     id: "1",
     category:"ropa",
@@ -32,30 +32,34 @@ const itemArray = [
     title: " Heladera Top House 286",
     price: 5000,
     pictureUrl: "https://http2.mlstatic.com/D_NQ_NP_998099-MLA31631960687_072019-O.jpg",
-
     },
 
 ]
 
+export default function ItemCategory(){
+    const {categoryId} = useParams();
+    const [items, setItems] = useState([]);
 
-export default function Item(){
-    
-    const [item, setItem] = useState([])
-
-
-    useEffect(() => {
+    useEffect(()=>{
         new Promise((resolve, reject) => {
-        setTimeout(resolve(itemArray), 2000);
-        }).then((NewItem) =>{
-        setItem(NewItem)
-        }).catch((reason) =>{
-            alert(`No se pudo efectuar por el siguiente problema:  ${reason}` )
-        });
-    });
+            setTimeout(resolve(array), 2000)
+            }).then((data)=>{
+                const filtro = data.filter((element) => {if(element.category === categoryId){
+                    return element
+                }})
+                setItems(filtro)
+            }).catch((reason) =>{
+                alert(`No se pudo efectuar por el siguiente problema:  ${reason}` )
+            });
+
+    },[categoryId])
 
     return(
-        <div>
-        {item.map((component) => <MostrarItem key={component.toString()} id={component.id} title={component.title} pictureUrl={component.pictureUrl} price={component.price} />)}
-        </div>
+    <div>
+
+    {items.map((component, key) => <MostrarItem key={component.id} id={component.id} title={component.title} pictureUrl={component.pictureUrl} price={component.price} />)}
+
+    </div>
     )
+
 }

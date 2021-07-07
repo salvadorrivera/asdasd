@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import NavBar from './components/NavBar.js';
 import ItemListContainer from './components/ItemListContainer.js'
 import ItemDetailContainer from './components/itemDetailContainer';
-
+import ItemCategory from './components/category';
 
 function App() {
   return (
@@ -16,13 +16,14 @@ function App() {
     </div>
       <Switch>
         <Route exact path="/">
-        <ItemListContainer title="hola" name="buenas" />
+        <ItemListContainer />
         </Route>
-        <Route exact path="/category/:id">
-         <ItemListContainer title="hola" name="buenas" />
-        </Route>
+
         <Route exact path="/item/:id">
          <ItemDetailContainer />
+        </Route>
+        <Route exact path="/category/:categoryId" >
+        <ItemCategory />
         </Route>
       </Switch>
     </Router>

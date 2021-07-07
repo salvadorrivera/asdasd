@@ -6,8 +6,9 @@ export default function MostrarItem({id, title, price, pictureUrl}){
         
             {id}
             {title}
-            {price}
             <img alt="" src={pictureUrl} />
+            {price}
+            
         
         </div>
     )

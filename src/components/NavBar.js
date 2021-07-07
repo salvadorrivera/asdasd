@@ -4,16 +4,23 @@ import CartWidget from './CartWidget.js'
 import './NavBar.css';
 
 function NavBar(){
+ 
     return(
         <header className="head">
             <CartWidget />
             <nav>    
-              <ul className="items">
-                    <li><Link to="/">Hola </Link></li>
+            <ul className="items">
+                    <li><Link to="/">Home </Link></li>
+                    <li><Link  to="/item/:id"> Items</Link></li>
 
-                    <li><Link  to="/category/:id"> Buenas </Link></li>
-
-                    <li><Link  to="/item/:id"> Noches </Link></li>
+            <ul  className="dropdown">
+                <li>Categories ↓ </li>
+                <ul className="DropDownMenu">
+                    <li><Link to={`/category/electrodomestico`}>electrodomesticos</Link></li>
+                    <li><Link to={`/category/ropa`}>ropa</Link></li>
+                </ul>
+            </ul>
+                    
                 </ul>
             </nav>
             

@@ -26,7 +26,7 @@ const array = [
     },
 ]
 
-  //{detail.title.map((components, key) => <ItemDetail item={detail} key={key} id={components.id}title={components.title} description={components.description} pictureUrl={components.pictureUrl} price={components.price} />)} 
+ 
 export default function ItemDetailContainer() {
     const [detail, setDetail] = useState([])
     const { id } = useParams();
@@ -54,7 +54,6 @@ export default function ItemDetailContainer() {
         </li>
      )}
        <ItemDetail item={detail}/>
-        
      </>
  )
 }
