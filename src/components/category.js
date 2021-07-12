@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router';
 import MostrarItem from './Item';
-const array= [
+import { Array } from './array';
+/*const array= [
     {
     id: "1",
     category:"ropa",
@@ -35,14 +36,14 @@ const array= [
     },
 
 ]
-
+*/
 export default function ItemCategory(){
     const {categoryId} = useParams();
     const [items, setItems] = useState([]);
 
     useEffect(()=>{
         new Promise((resolve, reject) => {
-            setTimeout(resolve(array), 2000)
+            setTimeout(resolve(Array), 2000)
             }).then((data)=>{
                 const filtro = data.filter((element) => {if(element.category === categoryId){
                     return element
@@ -57,7 +58,7 @@ export default function ItemCategory(){
     return(
     <div>
 
-    {items.map((component, key) => <MostrarItem key={component.id} id={component.id} title={component.title} pictureUrl={component.pictureUrl} price={component.price} />)}
+    {items.map((component) => <MostrarItem key={component.id} id={component.id} category={component.category} title={component.title} pictureUrl={component.pictureUrl} price={component.price} />)}
 
     </div>
     )

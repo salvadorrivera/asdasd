@@ -22,13 +22,13 @@ export default function ItemCount({initial, stock, onAdd}){
             verticalAlign:'middle'}}>
             <h1>stock total: {stock}</h1>
             <h1>stock disponible: {stock - contador} </h1>
+            {console.log(contador), console.log(stock)}
             <button onClick={agregar} >agregar</button>
             <br />
-            {contador}
+            <span>{contador}</span>
             <br />
             <button onClick={restar}>restar</button>
             <br />
-            
             <button onClick={()=> onAdd(contador)}>Agregar contenido</button>
         </span>
     )   

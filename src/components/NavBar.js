@@ -11,7 +11,6 @@ function NavBar(){
             <nav>    
             <ul className="items">
                     <li><Link to="/">Home </Link></li>
-                    <li><Link  to="/item/:id"> Items</Link></li>
 
             <ul  className="dropdown">
                 <li>Categories ↓ </li>
