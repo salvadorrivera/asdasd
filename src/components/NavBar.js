@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget.js'
 import './NavBar.css';
-
+import {CartContext} from './cartContext'
 function NavBar(){
- 
+    const {setBoton} = useContext(CartContext)
+
     return(
         <header className="head">
             <CartWidget />
@@ -15,9 +16,11 @@ function NavBar(){
             <ul  className="dropdown">
                 <li>Categories ↓ </li>
                 <ul className="DropDownMenu">
-                    <li><Link to={`/category/electrodomestico`}>electrodomesticos</Link></li>
-                    <li><Link to={`/category/ropa`}>ropa</Link></li>
+                    <li><Link to={`/category/electrodomestico`} onClick={()=>{setBoton(false)}}>electrodomesticos</Link></li>
+                    <li><Link to={`/category/ropa`}  onClick={()=>{setBoton(false)}}>ropa</Link></li>
+                    <button onClick={setBoton(false)}>Termina tu compra</button>
                 </ul>
+                
             </ul>
                     
                 </ul>

@@ -1,15 +1,21 @@
 // imports de React
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+// import { CartContext } from './components/cartContext';
+import CartContenido from './components/cartContext';
 // paginas a importar 
 import NavBar from './components/NavBar.js';
 import ItemListContainer from './components/ItemListContainer.js'
 import ItemDetailContainer from './components/itemDetailContainer';
 import ItemCategory from './components/category';
 
+
+
 function App() {
+ 
+
   return (
-  <>
+  <CartContenido>
   <Router>
     <div className="App">
        <NavBar />
@@ -26,7 +32,7 @@ function App() {
         </Route>
       </Switch>
     </Router>
-  </>
+  </CartContenido>
   );
    
 }
