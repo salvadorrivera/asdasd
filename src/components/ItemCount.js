@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import { CartContext } from './cartContext';
 
 export default function ItemCount({initial, stock, onAdd}){
-
+    const { cart, setCart} = useContext(CartContext); 
     const [contador, setContador] = useState(initial)
     
      const agregar = () => {
@@ -17,11 +18,7 @@ export default function ItemCount({initial, stock, onAdd}){
     const clear = () => {
         setContador(initial)
     }
-    const addItem = (value) =>{
-        if(contador<stock && contador > initial){
-            setContador(contador + addItem)
-        }
-    }
+
     return(
         <span style={
             {height:'500px',
@@ -31,7 +28,6 @@ export default function ItemCount({initial, stock, onAdd}){
             <h1>stock total: {stock}</h1>
             <h1>stock disponible: {stock - contador} </h1>
             <button onClick={agregar} >agregar</button>
-            <input type="number" max={stock} onAdd={addItem}/>
             <br />
             <span>{contador}</span>
             <br />
@@ -39,7 +35,7 @@ export default function ItemCount({initial, stock, onAdd}){
             <br />
             <button onClick={clear}>reset</button>
             <br />
-            <button onClick={()=> onAdd(contador)}>Agregar contenido</button>
+            <button onClick={()=> onAdd(contador) && setCart(cart)}>Agregar contenido</button>
         </span>
     )   
 }

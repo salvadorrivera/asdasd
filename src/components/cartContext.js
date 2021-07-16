@@ -5,16 +5,19 @@ export const CartContext = createContext()
 export default function CartContenido({children}){
     const [boton, setBoton] = useState(false)
     const [cart, setCart] = useState([]);
-    const onAdd= (contador)=>{
-        alert(`El numero de items que tiene en el carrito es:  ${contador}` )
-        setBoton(true)
-      }
-    const resetCounter = ()=>{
-        setBoton(false)
+
+    const  isInCart=(id)=> {
+        cart.find(element => element.id === id)
+        }
+
+    const AddToCart = (item, contador) =>{
+        isInCart(item.id) ? alert(`El producto ya esta en el carrito`) :  setCart([...cart, {item, contador}])
     }
+    
+    
     return (
         
-        <CartContext.Provider value={{boton, setBoton, cart, setCart, onAdd, resetCounter}}>
+        <CartContext.Provider value={{boton, setBoton, cart, setCart, AddToCart}}>
             {children}
         </CartContext.Provider>
         )

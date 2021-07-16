@@ -12,8 +12,6 @@ import ItemCategory from './components/category';
 
 
 function App() {
- 
-
   return (
   <CartContenido>
   <Router>
@@ -34,7 +32,6 @@ function App() {
     </Router>
   </CartContenido>
   );
-   
 }
 
 export default App;
