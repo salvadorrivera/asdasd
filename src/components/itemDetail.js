@@ -3,7 +3,7 @@ import ItemCount from './ItemCount';
 import { Link } from 'react-router-dom';
 import { CartContext } from './cartContext';
 export default function ItemDetail({ item }) {
-  const { boton, setBoton, AddToCart } = useContext(CartContext); 
+  const { boton, setBoton, AddToCart, RemoveItem, Clear, cart } = useContext(CartContext); 
 
   const onAdd= (contador)=>{
       alert(`El numero de items que tiene en el carrito es:  ${contador}` )
@@ -24,6 +24,10 @@ export default function ItemDetail({ item }) {
                     <button onClick={()=>{setBoton(false)}}>Termina tu compra</button>
                   </Link>
                   )}
+                  <button onClick={Clear}>Clear</button>
+                  <br />
+                  <button onClick={RemoveItem(cart.item.id)}>Remove Item</button>
+                  <br />
                 
          </div>
     )}
