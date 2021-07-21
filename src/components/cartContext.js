@@ -11,17 +11,21 @@ export default function CartContenido({children}){
         }
 
     const AddToCart = (item, contador) =>{
-        isInCart(item.id) ? alert("Este producto ya esta en el carrito") :  setCart([...cart, {item, contador}])
+        isInCart(item.id) ? alert("Este producto ya esta en el carrito") : setCart([...cart, {item, contador}])
     }
+    
     const Clear = () =>{
         return (setCart([]))
     }
-    const RemoveItem = (id) =>{
+    /*const RemoveItem = (id) =>{
        return cart.find((elemento)=> {if(elemento.item.id === id){
-            let pos = cart.indexOf(elemento.item.id)
+            let pos = cart.indexOf(elemento)
             setCart(cart.splice(pos))
         }})
-        
+    }*/
+    const RemoveItem = (id) =>{
+        const newCart = cart.filter((item)=> item.item.id !== id);
+        setCart(newCart)
     }
     return (
         
