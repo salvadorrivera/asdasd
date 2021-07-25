@@ -13,23 +13,23 @@ export default function CartContenido({children}){
     const AddToCart = (item, contador) =>{
         isInCart(item.id) ? alert("Este producto ya esta en el carrito") : setCart([...cart, {item, contador}])
     }
-    
+    const Reducer = cart.reduce(
+        (acc, curr) =>{
+            return acc + curr.item.price * curr.contador;
+        },
+        0        
+    )
     const Clear = () =>{
         return (setCart([]))
     }
-    /*const RemoveItem = (id) =>{
-       return cart.find((elemento)=> {if(elemento.item.id === id){
-            let pos = cart.indexOf(elemento)
-            setCart(cart.splice(pos))
-        }})
-    }*/
+   
     const RemoveItem = (id) =>{
         const newCart = cart.filter((item)=> item.item.id !== id);
         setCart(newCart)
     }
     return (
         
-        <CartContext.Provider value={{boton, setBoton, cart, setCart, AddToCart, Clear, RemoveItem}}>
+        <CartContext.Provider value={{boton, setBoton, cart, setCart, AddToCart, Clear, RemoveItem, Reducer}}>
             {children}
         </CartContext.Provider>
         )
