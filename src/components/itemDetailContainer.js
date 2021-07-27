@@ -1,7 +1,6 @@
 import React,{useEffect, useState, useContext} from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import ItemDetail from './itemDetail'
-import { Array } from './array'
 import { CartContext } from './cartContext'
 import { getFirestore } from '../firebase/firebase-index'
 
@@ -17,7 +16,21 @@ import { getFirestore } from '../firebase/firebase-index'
         }))
         .catch((err)=>{console.log(err)})
  */
- /* */
+ /* const filterProducts = () => {
+        const db = getFirestore();
+        const itemCollection = db.collection("items")
+        .where("id", "==", `${id}`)
+        return itemCollection.get().then((querySnapshot) => {
+            if(querySnapshot.size === 0){
+                console.log('no results')
+            } else {
+                setDetail(querySnapshot.docs.map(doc => doc.data()))
+            }
+        }).catch(error => {
+            console.log('error ->', error)
+        })
+    }*/
+
 export default function ItemDetailContainer() {
     const [detail, setDetail] = useState([])
     const { id } = useParams();
@@ -25,31 +38,31 @@ export default function ItemDetailContainer() {
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-       setLoading(true)
+        setLoading(true)
         const db = getFirestore();
-        const itemCollection = db.collection("items");
-        itemCollection.orderBy("id","asc");
-        const item = itemCollection.doc(id)
-
-        item.get().then((doc)=>{
-            setDetail({id: doc.id, ...doc.data()})
-            console.log(doc.data())
-        }).catch((error)=>{
-           console.log("Error", error)
-       }).finally(()=>{
-           setLoading(false)
-       })
-      
-    }, [id])
-
- return(
-     <>
-     <h1>Libros:</h1>
-     {Array.map((product, key, exact)=>
+        const itemCollection = db.collection("items")
+        .where("id", "==", id)
+        return itemCollection.get().then((querySnapshot) => {
+            if(querySnapshot.size === 0){
+                console.log('no results')
+            } else {
+                setDetail(querySnapshot.docs.map(doc => doc.data())[0]) 
+                
+            }
+        }).catch(error => {
+            console.log('error ->', error)
+        }).finally(()=>{setLoading(false)})
+       
+     }, [id])
+/* {Array.map((product, key, exact)=>
         <li key={key} exact={exact}> 
         <Link onClick={()=>{setBoton(false)}} to={`/item/${product.id}`}>{product.title}</Link>
         </li>
-     )}
+     )}*/ 
+ return(
+     <>
+     <h1>Producto: </h1>
+    
        <ItemDetail item={detail}/>
      </>
  )
