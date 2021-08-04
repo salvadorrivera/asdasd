@@ -15,7 +15,8 @@ function NavBar(){
             <ul className="items">
                     <li><Link to="/">Home </Link></li>
            
-            <CartWidget onClick={setBoton(false)} />
+            <CartWidget onClick={setBoton(false)}
+             />
             <ul  className="dropdown">
                 <li>Categories ↓ </li>
                 <ul className="DropDownMenu">

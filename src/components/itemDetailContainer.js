@@ -1,7 +1,6 @@
-import React,{useEffect, useState, useContext} from 'react'
+import React,{useEffect, useState, } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from './itemDetail'
-import { CartContext } from './cartContext'
 import { getFirestore } from '../firebase/firebase-index'
 
 
@@ -34,8 +33,8 @@ import { getFirestore } from '../firebase/firebase-index'
 export default function ItemDetailContainer() {
     const [detail, setDetail] = useState([])
     const { id } = useParams();
-    const {setBoton} = useContext(CartContext)
-    const [loading, setLoading] = useState(false)
+    
+    const [, setLoading] = useState(false)
 
     useEffect(() => {
         setLoading(true)

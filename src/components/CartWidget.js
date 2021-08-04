@@ -13,10 +13,9 @@ export default function CartWidget(){
     )
     return(
         <>
-        {cart.length === 0 ? "" : <Link to="/cart"><img className="widget" alt=""src="https://pics.freeicons.io/uploads/icons/png/18687613011579605524-512.png"  ></img>
+        {cart.length === 0 || <Link to="/cart"><img className="widget" alt="" src="https://pics.freeicons.io/uploads/icons/png/18687613011579605524-512.png"  ></img>
         {reducer}
         </Link>}
-        
         </>
     )
 }

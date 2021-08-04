@@ -15,7 +15,7 @@ import { getFirestore } from '../firebase/firebase-index';
 export default function ItemCategory(){
     const {categoryId} = useParams();
     const [items, setItems] = useState([]);
-    const [loading, setLoading] = useState(false)
+    const [, setLoading] = useState(false)
 
     // -----------------------------
 

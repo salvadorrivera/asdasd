@@ -5,9 +5,10 @@ import firebase from 'firebase';
 import { CartContext } from './cartContext';
 
 
-export default function Formulario() {
+export default function Formulario(props) {
     const {register, handleSubmit} = useForm();
-    const [idOrder, setIdOrder] = useState("")
+    const [, setIdOrder] = useState("")
+    
     const {cart, Reducer } = useContext(CartContext)
 
     const onSubmit=(data)=>{
@@ -31,7 +32,7 @@ export default function Formulario() {
         orders.add(newOrder).then(({id})=>{
             setIdOrder(id)
             alert(`su id es: ${id}`)
-            console.log(id)
+         
         }).catch(error =>{console.log("error ->", error)})
         
     }
@@ -39,7 +40,7 @@ export default function Formulario() {
 
   
 
-    return(
+    return(props.trigger) && (
         <form onSubmit={handleSubmit(onSubmit)}>
         <input type="text" name="name" id="name" placeholder="Nombre y Apellido" {...register('name',{required: "Required"})} />
         
@@ -49,8 +50,10 @@ export default function Formulario() {
         <br/>
         <input type="text" name="age" id="age" placeholder="edad" {...register('age',{required: "Required"})} />
         <br />
-        <input type="submit" value="Enviar" />
-        {console.log(Reducer)}
+        <input type="submit" value="Enviar"  />
+        <button onClick={()=> props.setTrigger(false)}>terminado</button>
+        {props.children}
+        
         </form>
-    )
+    );
 }

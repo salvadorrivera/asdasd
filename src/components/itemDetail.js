@@ -27,7 +27,7 @@ export default function ItemDetail({ item }) {
                   </Link>
                   )}
 
-                {console.log(item)}
+                
          </div>
     )}
     
