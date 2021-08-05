@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Proyecto e-commerce para CoderHouse
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto fue hecho gracias al curso de React.js en [coder house](https://www.coderhouse.com/).
 
 ## Available Scripts
 
