@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from './cartContext';
 import "./CartWidget.css";
+import {FaCartPlus} from 'react-icons/fa'
 
 export default function CartWidget(){
     const {cart} = useContext(CartContext)
@@ -13,7 +14,7 @@ export default function CartWidget(){
     )
     return(
         <>
-        {cart.length === 0 || <Link to="/cart"><img className="widget" alt="" src="https://pics.freeicons.io/uploads/icons/png/18687613011579605524-512.png"  ></img>
+        {cart.length === 0 || <Link to="/cart"><FaCartPlus />
         {reducer}
         </Link>}
         </>

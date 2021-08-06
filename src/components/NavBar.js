@@ -4,18 +4,20 @@ import CartWidget from './CartWidget.js'
 import './NavBar.css';
 import {CartContext} from './cartContext'
 
+import {FiAnchor} from 'react-icons/fi'
+
 
 
 function NavBar(){
     const {setBoton} = useContext(CartContext)
     return(
         <header className="head">
-            <Link to="/"><img className="image"alt=""src="https://pics.freeicons.io/uploads/icons/png/15675701751543238854-512.png" /></Link>
+            <Link to="/"><FiAnchor className="image"/></Link>
             <nav>    
             <ul className="items">
                     <li><Link to="/">Home </Link></li>
            
-            <CartWidget onClick={setBoton(false)}
+              <CartWidget onClick={setBoton(false)}
              />
             <ul  className="dropdown">
                 <li>Categories ↓ </li>

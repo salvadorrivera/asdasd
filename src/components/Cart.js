@@ -24,7 +24,6 @@ export default function Cart(){
         <button style={{marginBottom:6,}} onClick={()=> setPopup(true)}>Terminar compra</button> 
          <Formulario trigger={popup} setTrigger={setPopup}></Formulario>
          </>}
-        
         </div>
     )
 }
