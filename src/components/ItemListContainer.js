@@ -1,17 +1,13 @@
+import Item from "./ItemList";
 
-
-import Item from './ItemList';
-
-
-export default function ItemListContainer(props){
-
-
-    return(
+export default function ItemListContainer(props) {
+  return (
     <div>
-        <>
-            {props.title}{props.name}
-            <Item  />
-        </>
+      <>
+        {props.title}
+        {props.name}
+        <Item />
+      </>
     </div>
-    )
-};
+  );
+}
