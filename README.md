@@ -10,3 +10,10 @@ y agregarlos a un carrito.
 - Ya en el carrito podemos eliminar los items o terminar la compra.
 
 - Al terminar la compra aparecera un formulario y al completarlo se guardara la compra un un ID unico
+
+
+
+
+# Porque es tan feo el proyecto?
+
+No le dedique mucho tiempo al diseño de la pagina ya que me concentre plenamente en el funcionamiento y logica de esta

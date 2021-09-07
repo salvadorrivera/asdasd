@@ -5,12 +5,12 @@ import { getFirestore } from "../firebase/firebase-index";
 export default function ItemCategory() {
   const { categoryId } = useParams();
   const [items, setItems] = useState([]);
-  const [, setLoading] = useState(false);
+  
 
   // -----------------------------
 
   useEffect(() => {
-    setLoading(true);
+    
     const db = getFirestore();
     const itemCollection = db.collection("items");
     const category = itemCollection.where("categoryId", "==", `${categoryId}`);
@@ -28,9 +28,6 @@ export default function ItemCategory() {
       .catch((error) => {
         console.log("Error", error);
       })
-      .finally(() => {
-        setLoading(false);
-      });
   }, [categoryId]);
 
   return (

@@ -7,10 +7,9 @@ export default function ItemDetailContainer() {
   const [detail, setDetail] = useState([]);
   const { id } = useParams();
 
-  const [, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
+    
     const db = getFirestore();
     const itemCollection = db.collection("items").where("id", "==", id);
     return itemCollection
@@ -25,9 +24,6 @@ export default function ItemDetailContainer() {
       .catch((error) => {
         console.log("error ->", error);
       })
-      .finally(() => {
-        setLoading(false);
-      });
   }, [id]);
 
   return (

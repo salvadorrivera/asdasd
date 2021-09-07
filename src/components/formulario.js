@@ -10,6 +10,7 @@ export default function Formulario(props) {
 
   const { cart, Reducer } = useContext(CartContext);
 
+  const onError=(errors, e)=>alert(`hubo un error: ${errors}${e}`);
   const onSubmit = (data) => {
     const db = getFirestore();
     const orders = db.collection("order");
@@ -41,7 +42,7 @@ export default function Formulario(props) {
 
   return (
     props.trigger && (
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit, onError)}>
         <input
           type="text"
           name="name"

@@ -4,10 +4,10 @@ import { getFirestore } from "../firebase/firebase-index";
 
 export default function Item() {
   const [item, setItem] = useState([]);
-  const [, setLoading] = useState(false);
+
 
   useEffect(() => {
-    setLoading(true);
+    
     const db = getFirestore();
     const itemCollection = db.collection("items");
     itemCollection
@@ -21,9 +21,6 @@ export default function Item() {
       .catch((error) => {
         console.log("Error", error);
       })
-      .finally(() => {
-        setLoading(false);
-      });
   }, []);
 
   return (

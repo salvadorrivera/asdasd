@@ -15,9 +15,20 @@ export default function CartContenido({ children }) {
       ? alert("Este producto ya esta en el carrito")
       : setCart([...cart, { item, contador }]);
   };
+
+
   const Reducer = cart.reduce((acc, curr) => {
     return acc + curr.item.price * curr.contador;
   }, 0);
+
+
+  const ReducerSum = cart.reduce(
+    (acc, curr) =>{
+        return acc + curr.contador;
+    },
+    0        
+)
+
   const Clear = () => {
     return setCart([]);
   };
@@ -37,6 +48,7 @@ export default function CartContenido({ children }) {
         Clear,
         RemoveItem,
         Reducer,
+        ReducerSum
       }}
     >
       {children}
